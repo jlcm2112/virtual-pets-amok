@@ -3,11 +3,8 @@ package virtualpetsamok;
 public interface OrganicPet {
 
 	String getName();
-
 	void feed();
-
-	void water();
-	
+	void water();	
 	int getHunger();
 	int getThirst();
 	int tick();
