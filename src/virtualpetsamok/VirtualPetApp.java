@@ -73,7 +73,7 @@ public class VirtualPetApp {
 
 			}
 			
-			writeLine("The litterbox is: " + shelter.getLitterBox());
+			writeLine("The litterbox messiness level (0-100) is: " + shelter.getLitterBox());
 			writeLine("\nWhat would you like to do next?");
 			writeLine(
 					"\n1.Feed the organic pets \n2.Water the organic pets \n3.Play with a pet \n4.Adopt a pet \n5.Admit a pet \n6.Clean Cages \n7.Clean Litterbox \n8.Walk Dogs \n9.Maintain all RoboPets \n10.Do nothing \n11.Quit");

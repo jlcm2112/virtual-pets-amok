@@ -10,6 +10,6 @@ public interface OrganicPet {
 	
 	int getHunger();
 	int getThirst();
-	public abstract int tick();
+	int tick();
 
 }
