@@ -80,8 +80,13 @@ public class VirtualPetShelter {
 		for (VirtualPet pet : pets()) {
 			if (pet instanceof OrgCat) {
 				litterBox += ((OrgCat) pet).tick();
-			} else if (pet instanceof OrganicPet) {
-				((OrganicPet) pet).tick();
+			}
+			if (!(pet instanceof OrgCat)) 
+				if (pet instanceof OrgDog){
+				((OrgDog) pet).tick();
+				}
+				if (pet instanceof RoboticPet){
+				((RoboticPet) pet).tick();
 			}
 		}
 	}
