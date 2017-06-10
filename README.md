@@ -1,4 +1,4 @@
-##H1 Welcome to the new-and-improved Virtual Pet Shelter!
+Welcome to the new-and-improved Virtual Pet Shelter!
 
 The pets were running amok -- so we organized them. This shelter currently handles organic cats and dogs and robotic cats and dogs.
 
