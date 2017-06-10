@@ -1,4 +1,4 @@
-package virtualpetamok;
+package virtualpetsamok;
 
 public class RoboDog extends Dog implements RoboticPet {
 	int oilLevel;

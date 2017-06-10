@@ -1,4 +1,4 @@
-package virtualpetamok;
+package virtualpetsamok;
 
 public class RoboCat extends Cat implements RoboticPet{
 

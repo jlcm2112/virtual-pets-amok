@@ -1,4 +1,4 @@
-package virtualpetamok;
+package virtualpetsamok;
 
 public class OrgDog extends Dog implements OrganicPet {
 

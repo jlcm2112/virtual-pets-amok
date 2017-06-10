@@ -1,4 +1,4 @@
-package virtualpetamok;
+package virtualpetsamok;
 
 public interface OrganicPet {
 

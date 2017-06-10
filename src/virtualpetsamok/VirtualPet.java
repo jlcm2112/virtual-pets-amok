@@ -1,4 +1,4 @@
-package virtualpetamok;
+package virtualpetsamok;
 
 import java.util.Random;
 

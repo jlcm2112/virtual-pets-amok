@@ -1,4 +1,4 @@
-package virtualpetamok;
+package virtualpetsamok;
 
 public class OrgCat extends Cat implements OrganicPet {
 	protected int hunger;

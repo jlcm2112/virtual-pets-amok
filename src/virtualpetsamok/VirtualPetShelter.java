@@ -1,4 +1,4 @@
-package virtualpetamok;
+package virtualpetsamok;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -89,7 +89,7 @@ public class VirtualPetShelter {
 		litterBox += 5;
 	}
 
-	// Tick method (**ASK BRIAN WHY WE ARE RETURNING CAGE MESSINESS FOR DOGS**)
+	// Tick method (**ASK BRIAN WHY WE ARE RETURNING CAGE MESSINESS FOR ORGANIC DOGS**)
 	void tickAllPets() {
 		for (OrganicPet p : organicDogs.values()) {
 			p.tick();
