@@ -42,13 +42,13 @@ public class OrgDog extends Dog implements OrganicPet {
 		health += 10;
 	}
 
-	@Override //I'm only returning a value because you said to...it's never used in the shelter.
+	@Override 
 	public int tick() {
 		hunger += (5 + generateRandom());
 		thirst += (5 + generateRandom());
 		mood -= (5 + generateRandom());
 		cageMessiness += (5 + generateRandom());
-		return cageMessiness;
+		return 0;
 	}
 
 	@Override

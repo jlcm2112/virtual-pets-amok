@@ -8,7 +8,7 @@ public class VirtualPetShelter {
 	// Map of pets and attributes
 	private int litterBox = 50;
 
-	Map<String, VirtualPet> shelterPets = new HashMap<String, VirtualPet>();
+	private Map<String, VirtualPet> shelterPets = new HashMap<String, VirtualPet>();
 
 	public int getLitterBox() {
 		return litterBox;
@@ -94,7 +94,6 @@ public class VirtualPetShelter {
 	// Method to return a pet from the map by name
 	public VirtualPet getPet(String name) {
 		return shelterPets.get(name);
-
 	}
 
 	// Method to play with one pet
