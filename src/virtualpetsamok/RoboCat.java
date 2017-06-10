@@ -10,38 +10,17 @@ public class RoboCat extends Cat implements RoboticPet{
 	}
 
 	@Override
-	public String getName() {
-		return name;
-	}
-
-	@Override
-	public int getHealth() {
-		return health;
-	}
-
-	@Override
-	public int getMood() {
-		// TODO Auto-generated method stub
-		return mood;
-	}
-
-	@Override
 	public void play() {
 		mood += 20;
 		oilLevel -= 5;
 	}
 
-	@Override
-	public int tick() {
+	@Override  
+	public void tick() {
 		mood -= (5 + generateRandom());
 		oilLevel -= (5 + generateRandom());	
-		return 0;
 	}
 
-	@Override
-	public int generateRandom() {
-		return generator.nextInt(10);
-	}
 
 	@Override
 	public void oilPet() {

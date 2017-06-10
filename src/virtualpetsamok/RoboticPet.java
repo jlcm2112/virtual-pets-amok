@@ -7,5 +7,6 @@ public interface RoboticPet {
 	public void oilPet();
 	public int getOilLevel();
 	public void recharge();
+	public abstract void tick();
 
 }

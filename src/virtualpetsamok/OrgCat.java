@@ -22,21 +22,6 @@ public class OrgCat extends Cat implements OrganicPet {
 	}
 
 	@Override
-	public String getName() {
-		return name;
-	}
-
-	@Override
-	public int getHealth() {
-		return health;
-	}
-
-	@Override
-	public int getMood() {
-		return mood;
-	}
-
-	@Override
 	public void play() {
 		mood += 20;
 		hunger += 10;
@@ -44,16 +29,11 @@ public class OrgCat extends Cat implements OrganicPet {
 	}
 
 	@Override
-	public int tick() {
+	public int tick() { // increments hunger, thirst, and mood, and returns integer which will be used to affect litter
 		hunger += (5 + generateRandom());
 		thirst += (5 + generateRandom());
 		mood -= (5 + generateRandom());		
-		return 5;
-	}
-
-	@Override
-	public int generateRandom() {
-		return generator.nextInt(10);
+		return (1 + generateRandom());
 	}
 
 	@Override
@@ -65,8 +45,6 @@ public class OrgCat extends Cat implements OrganicPet {
 	public int getThirst() {
 		return thirst;
 	}
-	public void decreaseHealth() {
-		health -= 10;
-	}
+
 
 }

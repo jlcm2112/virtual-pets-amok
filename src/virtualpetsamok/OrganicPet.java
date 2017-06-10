@@ -8,9 +8,8 @@ public interface OrganicPet {
 
 	void water();
 	
-	int tick();
-	
 	int getHunger();
 	int getThirst();
+	public abstract int tick();
 
 }

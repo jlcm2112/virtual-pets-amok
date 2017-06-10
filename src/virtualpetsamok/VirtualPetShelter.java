@@ -9,10 +9,6 @@ public class VirtualPetShelter {
 	private int litterBox = 50;
 
 	Map<String, VirtualPet> shelterPets = new HashMap<String, VirtualPet>();
-	Map<String, OrganicPet> organicDogs = new HashMap<String, OrganicPet>();
-	Map<String, OrganicPet> organicCats = new HashMap<String, OrganicPet>();
-	Map<String, RoboticPet> roboticDogs = new HashMap<String, RoboticPet>();
-	Map<String, RoboticPet> roboticCats = new HashMap<String, RoboticPet>();
 
 	public int getLitterBox() {
 		return litterBox;
@@ -23,107 +19,76 @@ public class VirtualPetShelter {
 	}
 
 	public void maintainAllRobo() {
-		for (RoboticPet d : roboticDogs.values()) {
-			d.oilPet();
-			d.recharge();
-		}
-		for (RoboticPet c : roboticCats.values()) {
-			c.oilPet();
-			c.recharge();
+		for (VirtualPet pet : pets()) {
+			if (pet instanceof RoboticPet) {
+				((RoboticPet) pet).oilPet();
+				((RoboticPet) pet).recharge();
+			}
 		}
 	}
 
 	public void cleanDogCages() {
-		for (OrganicPet d : organicDogs.values()) {
-			((OrgDog) d).cleanCage();
+		for (VirtualPet pet : pets()) {
+			if (pet instanceof OrgDog) {
+				((OrgDog) pet).cleanCage();
+			}
 		}
 	}
 
 	public void walkDogs() {
-		for (OrganicPet d : organicDogs.values()) {
-			((Dog) d).walk();
-		}
-		for (RoboticPet d : roboticDogs.values()) {
-			((Dog) d).walk();
+		for (VirtualPet pet : pets()) {
+			if (pet instanceof Dog) {
+				((Dog) pet).walk();
+			}
 		}
 
 	}
 
-	public void intake(OrganicPet pet) {
+	public void intake(VirtualPet pet) {
 		shelterPets.put(pet.getName(), (VirtualPet) pet);
-		if (pet instanceof OrgCat) {
-			organicCats.put(pet.getName(), pet);
-		}
-		if (pet instanceof OrgDog) {
-			organicDogs.put(pet.getName(), pet);
-		}
 	}
 
 	public void intake(RoboticPet pet) {
 		shelterPets.put(pet.getName(), (VirtualPet) pet);
-		if (pet instanceof RoboCat) {
-			roboticCats.put(pet.getName(), pet);
-		}
-		if (pet instanceof RoboDog) {
-			roboticDogs.put(pet.getName(), pet);
-		}
+	}
+
+	public void intake(OrganicPet pet) {
+		shelterPets.put(pet.getName(), (VirtualPet) pet);
 	}
 
 	public void feedAllOrganic() {
-		for (OrganicPet p : organicDogs.values()) {
-			p.feed();
-		}
-		for (OrganicPet p : organicCats.values()) {
-			p.feed();
+		for (VirtualPet pet : pets()) {
+			if (pet instanceof OrganicPet) {
+				((OrganicPet) pet).feed();
+			}
 		}
 		litterBox += 10;
 	}
 
 	public void waterAllOrganic() {
-		for (OrganicPet p : organicDogs.values()) {
-			p.water();
-		}
-		for (OrganicPet p : organicCats.values()) {
-			p.water();
+		for (VirtualPet pet : pets()) {
+			if (pet instanceof OrganicPet) {
+				((OrganicPet) pet).water();
+			}
 		}
 		litterBox += 5;
 	}
 
-	// Tick method (**ASK BRIAN WHY WE ARE RETURNING CAGE MESSINESS FOR ORGANIC DOGS**)
+	// Tick method (**ASK BRIAN WHY WE ARE RETURNING CAGE MESSINESS FOR ORGANIC
+	// DOGS**)
 	void tickAllPets() {
-		for (OrganicPet p : organicDogs.values()) {
-			p.tick();
-		}
-		for (OrganicPet p : organicCats.values()) {
-			litterBox += p.tick();
-		}
-		for (RoboticPet d : roboticDogs.values()) {
-			((RoboDog) d).tick();
-		}
-		for (RoboticPet c : roboticCats.values()) {
-			((RoboCat) c).tick();
+		for (VirtualPet pet : pets()) {
+			if (pet instanceof OrgCat) {
+				litterBox += ((OrgCat) pet).tick();
+			} else if (pet instanceof OrganicPet) {
+				((OrganicPet) pet).tick();
+			}
 		}
 	}
 
 	// Method returning collection of all pets in the shelter
 	public Collection<VirtualPet> pets() {
 		return shelterPets.values();
-	}
-
-	public Collection<OrganicPet> organicDogs() {
-		return organicDogs.values();
-	}
-
-	public Collection<OrganicPet> organicCats() {
-		return organicCats.values();
-	}
-
-	public Collection<RoboticPet> roboticDogs() {
-		return roboticDogs.values();
-	}
-
-	public Collection<RoboticPet> roboticCats() {
-		return roboticCats.values();
 	}
 
 	// Method to return a pet from the map by name
@@ -140,18 +105,5 @@ public class VirtualPetShelter {
 	// Method to adopt a pet
 	public void adoptPet(VirtualPet pet) {
 		shelterPets.remove(pet.getName());
-
-		if (pet instanceof RoboDog) {
-			roboticDogs.remove(pet.getName(), pet);
-		}
-		if (pet instanceof RoboCat) {
-			roboticCats.remove(pet.getName(), pet);
-		}
-		if (pet instanceof OrgDog) {
-			organicDogs.remove(pet.getName(), pet);
-		}
-		if (pet instanceof OrgCat) {
-			organicCats.remove(pet.getName(), pet);
-		}
 	}
 }

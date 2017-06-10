@@ -21,20 +21,30 @@ public abstract class VirtualPet {
 		mood = 50;
 	}
 	
-	public abstract String getName();
+	public String getName() {
+		return name;
+	}
 	
-	public abstract int getHealth();
+	public int getHealth() {
+		return health;
+	}
 	
-	public abstract int getMood();
+	public int getMood() {
+		return mood;
+	}
 	
 	public abstract void play();
-	
-	public abstract int tick();
-	
-	public abstract int generateRandom();
+		
+	public int generateRandom() {
+		return generator.nextInt(10);
+	}
 	
 	@Override
 	public String toString() {
 		return ("[" + name + "] " + description); 
+	}
+
+	public void decreaseHealth() {
+		health -= 10;
 	}
 }
